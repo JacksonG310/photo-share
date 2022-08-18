@@ -1,4 +1,4 @@
-# photo3
+# photo
 
 ## Project setup
 ```
