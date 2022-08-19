@@ -6,7 +6,20 @@ module.exports = {
     ],
     darkMode: false, // or 'media' or 'class'
     theme: {
-        extend: {},
+        extend: {
+            height: {
+                '22px': '22px',
+                '44px': '44px',
+                '80vh': '80vh',
+                'headerPC': '72px',
+                'mainPC': 'calc(100vh - 72px)'
+            },
+            maxHeight: {
+                '368px': '368px',
+
+            }
+        },
+
         fontSize: {
             //字体大小和行高
             xs: ['0.25rem', '0.35rem'],

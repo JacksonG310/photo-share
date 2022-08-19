@@ -4,14 +4,15 @@
 <script setup>
 import { isMobile } from '@/utils/isMobile';
 import { getCategory } from '@/api/category';
-import { ref } from 'vue';
+import { ALL_CATEGORY_ITEM } from '@/constants';
 import mobileNavigation from './mobile/index.vue';
+import { ref } from 'vue';
 
 const categoryData = ref([]);
 const getCategoryData = async () => {
   const { categories } = await getCategory();
   categoryData.value = categories;
-  console.log(categoryData.value);
+  categoryData.value.unshift(ALL_CATEGORY_ITEM);
 };
 getCategoryData();
 </script>
