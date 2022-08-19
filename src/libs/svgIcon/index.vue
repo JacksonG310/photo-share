@@ -12,7 +12,7 @@ const props = defineProps({
     required: true
   },
   //  图标颜色
-  icon: {
+  color: {
     type: String
   },
   //   tailwindClass
