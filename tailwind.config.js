@@ -7,6 +7,9 @@ module.exports = {
     darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {
+            width: {
+                '140px': '140px',
+            },
             height: {
                 '22px': '22px',
                 '44px': '44px',
@@ -16,7 +19,12 @@ module.exports = {
             },
             maxHeight: {
                 '368px': '368px',
-
+            },
+            colors: {
+                main: '#f44c58',
+                'hover-main': '#f32836',
+                'vue-green': '#41b883',
+                'vue-gray': '#35495e'
             }
         },
 
