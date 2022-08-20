@@ -47,7 +47,7 @@ watch(
   }
 );
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 // 进来过程
 .fade-enter-active,
 // 离开过程
