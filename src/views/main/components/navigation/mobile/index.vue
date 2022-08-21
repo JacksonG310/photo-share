@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white sticky top-0 left-0 z-10">
+  <div class="bg-white dark:bg-gray-900 sticky top-0 left-0 z-10">
     <ul
       ref="ulTarget"
       class="relative flex overflow-x-auto p-1 text-xs text-gray-600"
@@ -8,11 +8,11 @@
       <li
         ref="sliderTarget"
         :style="sliderStyle"
-        class="absolute h-22px bg-black rounded-lg duration-200"
+        class="absolute h-22px bg-black dark:bg-gray-800 rounded-lg duration-200"
       ></li>
       <!-- 右侧按钮 -->
       <li
-        class="fixed top-0 -right-px h-4 px-1 flex items-center bg-white z-20 shadow-l-white"
+        class="fixed top-0 -right-px h-4 px-1 flex items-center bg-white dark:bg-gray-900 z-20 shadow-l-white dark:shadow-l-gray"
         @click="handleShowPopup"
       >
         <m-svgIcon
@@ -22,12 +22,12 @@
         ></m-svgIcon>
       </li>
       <li
-        v-for="(item, index) in data"
+        v-for="(item, index) in $store.getters.categoryData"
         :key="item.id"
         class="flex-shrink-0 px-1.5 py-0.5 z-10 duration-200"
         :class="{
           'text-white': currentCategoryIndex === index,
-          'mr-4': index === data.length - 1
+          'mr-4': index === $store.getters.categoryData.length - 1
         }"
         :ref="setItem"
         @click="handleItemClick(index)"
@@ -36,7 +36,7 @@
       </li>
     </ul>
     <m-popup v-model="isPopupVisible">
-      <Menu :categoryData="data" @onMenuItemClick="handleMenuItemClick"></Menu>
+      <Menu @onMenuItemClick="handleMenuItemClick"></Menu>
     </m-popup>
   </div>
 </template>
@@ -45,12 +45,6 @@ import { useScroll } from '@vueuse/core';
 import { ref, onBeforeUpdate, watch } from 'vue';
 import Menu from '../../menu/index.vue';
 
-defineProps({
-  data: {
-    type: Array,
-    require: true
-  }
-});
 // 滑块样式
 const sliderStyle = ref({
   transform: 'translateX(0px)',

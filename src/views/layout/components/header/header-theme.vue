@@ -4,9 +4,9 @@
       <!-- 触发器 -->
       <template #reference>
         <m-svgIcon
-          name="theme-light"
-          class="w-4 h-4 p-1 cursor-pointer rounded-sm duration-200 outline-none hover:bg-gray-200 bg-opacity-60"
-          fillClass="fill-gray-600"
+          :name="svgIconName"
+          class="w-4 h-4 p-1 cursor-pointer rounded-sm duration-200 outline-none hover:bg-gray-200 dark:hover:border-gray-900 bg-opacity-60"
+          fillClass="fill-gray-900 dark:fill-gray-300"
         >
         </m-svgIcon>
       </template>
@@ -15,10 +15,17 @@
         <div
           v-for="item in themeArr"
           :key="item.id"
-          class="flex items-center p-1 cursor-pointer rounded hover:bg-gray-100 bg-opacity-60"
+          @click="onThemeItemClick(item)"
+          class="flex items-center p-1 cursor-pointer rounded hover:bg-gray-100 dark:bg-gray-800 bg-opacity-60"
         >
-          <m-svgIcon :name="item.icon" class="w-1.5 h-1.5 mr-1"></m-svgIcon>
-          <span class="text-gray-800 text-sm">{{ item.name }}</span>
+          <m-svgIcon
+            :name="item.icon"
+            class="w-1.5 h-1.5 mr-1"
+            fillClass="fill-gray-900 dark:fill-gray-300"
+          ></m-svgIcon>
+          <span class="text-gray-800 text-sm dark:text-gray-300">{{
+            item.name
+          }}</span>
         </div>
       </div>
     </m-popover>
@@ -27,6 +34,9 @@
 
 <script setup>
 import { THEME_LIGHT, THEME_DARK, THEME_SYSTEM } from '@/constants';
+import { useStore } from 'vuex';
+import { computed } from 'vue';
+const store = useStore();
 const themeArr = [
   {
     id: '0',
@@ -47,4 +57,14 @@ const themeArr = [
     name: '跟随系统'
   }
 ];
+const onThemeItemClick = (currentTheme) => {
+  store.dispatch('theme/useThemeType', currentTheme.type);
+};
+
+const svgIconName = computed(() => {
+  const findTheme = themeArr.find(
+    (item) => item.type === store.getters.themeType
+  );
+  return findTheme.icon;
+});
 </script>

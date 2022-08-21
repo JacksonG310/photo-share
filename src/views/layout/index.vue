@@ -3,6 +3,7 @@
     <Header class="h-headerPC"></Header>
     <Main class="h-mainPC"></Main>
     <Floating class="fixed bottom-10 right-2"></Floating>
+    
   </div>
 </template>
 

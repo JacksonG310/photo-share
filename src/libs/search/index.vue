@@ -1,6 +1,6 @@
 <template>
   <div
-    class="group relative p-0.5 rounded-xl border-white duration-500 hover:bg-vue-green hover:bg-opacity-10"
+    class="group relative p-0.5 rounded-xl border-white dark:border-gray-200 duration-500 hover:bg-vue-green hover:bg-opacity-10"
     ref="searchCantainer"
   >
     <div>
@@ -12,7 +12,7 @@
       ></m-svgIcon>
       <!-- 输入框 -->
       <input
-        class="block w-full h-44px pl-4 outline-none bg-gray-50 rounded-xl text-black text-sm tracking-wide font-semibold border border-gray-300 focus:border-red-300 duration-500 group-hover:bg-white"
+        class="block w-full h-44px pl-4 outline-none bg-gray-100 dark:bg-gray-800 rounded-xl text-black dark:to-gray-200 text-sm tracking-wide font-semibold border border-gray-300 dark:border-gray-700 focus:border-vue-green duration-500 group-hover:bg-white dark:group-hover:bg-gray-900 group-hover:border-gray-200 dark:group-hover:border-gray-700"
         type="text"
         placeholder="搜索"
         v-model="inputValue"
@@ -45,7 +45,7 @@
         v-if="$slots.dropdown"
         v-show="isFocus"
         id="slider"
-        class="max-h-368px w-full text-base overflow-auto bg-white absolute z-20 left-0 top-6 p-2 rounded border border-gray-200 duration-200"
+        class="max-h-368px w-full text-base overflow-auto bg-white dark:bg-gray-800 absolute z-20 left-0 top-6 p-2 rounded border border-gray-200 dark:border-gray-600 duration-200"
       >
         <slot name="dropdown"></slot>
       </div>

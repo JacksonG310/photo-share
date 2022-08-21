@@ -1,19 +1,23 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    darkMode: 'class',
     purge: [
         './src/**/*.html',
         './src/**/*.js',
     ],
-    darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {
+
             width: {
                 '140px': '140px',
+                '800px': '800px'
             },
             height: {
                 '22px': '22px',
                 '44px': '44px',
+                '56px': '56px',
                 '80vh': '80vh',
+                '206px': '206px',
                 'headerPC': '72px',
                 'mainPC': 'calc(100vh - 72px)'
             },
@@ -37,7 +41,8 @@ module.exports = {
             xl: ['0.65rem', '0.75rem'],
         },
         boxShadow: {
-            'l-white': '-10px 0 10px #fff'
+            'l-white': '-10px 0 10px #fff',
+            'l-gray': '-10px 0 10px #18181b'
         }
     },
     variants: {},
