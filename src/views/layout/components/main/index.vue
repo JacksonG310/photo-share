@@ -1,3 +1,5 @@
 <template>
-  <div>我是header</div>
+  <div>
+    <router-view></router-view>
+  </div>
 </template>

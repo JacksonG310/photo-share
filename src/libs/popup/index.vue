@@ -12,7 +12,7 @@
       <transition name="pop-down-up">
         <!-- 内容 -->
         <div
-          class="w-screen bg-white z-50 fixed bottom-0"
+          class="w-screen bg-white dark:bg-gray-800 z-50 fixed bottom-0"
           v-bind="$attrs"
           v-if="modelValue"
         >

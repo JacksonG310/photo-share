@@ -1,6 +1,4 @@
-const Mock = require('mockjs');
-
-
+const list = require('./list')
 module.exports = function(app) {
     app.get('/category', (req, res) => {
         const categoryData = {
@@ -44,4 +42,21 @@ module.exports = function(app) {
         }
         res.send(categoryData);
     })
+    app.get('/pexels/list', (req, res) => {
+        const { page, size } = req.query;
+        const startIndex = page * size;
+        const endIndex = (page + 1) * size;
+        const listData = list.slice(startIndex, endIndex);
+        const result = {
+            code: 200,
+            data: { list: listData },
+            page,
+            size,
+            total: list.length,
+            message: "success",
+            success: true
+        }
+        res.send(result)
+    })
+
 }

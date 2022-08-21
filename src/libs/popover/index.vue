@@ -8,7 +8,7 @@
       <div
         ref="contentTarget"
         v-show="isVisible"
-        class="absolute p-1 z-20 bg-white border rounded-md"
+        class="absolute p-1 z-20 dark:bg-gray-900 bg-white border dark:border-gray-700 rounded-md"
         :style="contentStyle"
       >
         <!-- 指定弹出层内容 -->
