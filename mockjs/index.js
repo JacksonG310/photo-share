@@ -49,12 +49,16 @@ module.exports = function(app) {
         const listData = list.slice(startIndex, endIndex);
         const result = {
             code: 200,
-            data: { list: listData },
+            data: {
+                list: listData,
+                total: list.length,
+            },
             page,
             size,
-            total: list.length,
             message: "success",
-            success: true
+            success: true,
+            startIndex,
+            endIndex
         }
         res.send(result)
     })

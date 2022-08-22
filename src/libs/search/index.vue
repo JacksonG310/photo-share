@@ -1,4 +1,5 @@
 <template>
+  <!-- search组件 -->
   <div
     class="group relative p-0.5 rounded-xl border-white dark:border-gray-200 duration-500 hover:bg-vue-green hover:bg-opacity-10"
     ref="searchCantainer"

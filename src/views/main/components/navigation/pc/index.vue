@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white dark:bg-gray-800 sticky top-0 left-0 w-full z-10">
     <ul
-      class="w-800px relative flex flex-wrap justify-center overflow-x-auto px-[10px] py-1 text-xs text-gray-400 duration-300 overflow-hidden mx-auto"
+      class="w-800px relative flex flex-wrap justify-center overflow-x-auto overflow-y-hidden px-[10px] py-1 text-xs text-gray-400 duration-300 overflow-hidden mx-auto"
       :class="isOpen ? 'h-206px' : 'h-56px'"
     >
       <!-- 小箭头 -->

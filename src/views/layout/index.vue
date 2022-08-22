@@ -1,9 +1,10 @@
 <template>
   <div class="h-screen">
     <Header class="h-headerPC"></Header>
-    <Main class="h-mainPC"></Main>
+    <div class="h-mainPC">
+      <Main></Main>
+    </div>
     <Floating class="fixed bottom-10 right-2"></Floating>
-    
   </div>
 </template>
 

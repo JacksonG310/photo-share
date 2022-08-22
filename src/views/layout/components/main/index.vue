@@ -1,5 +1,4 @@
 <template>
-  <div>
-    <router-view></router-view>
-  </div>
+  <!-- main -->
+  <router-view></router-view>
 </template>

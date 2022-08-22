@@ -1,7 +1,11 @@
 <template>
-  <Navigation class="h-full overflow-auto bg-white duration-500" />
-  <div class="max-w-screen-xl mx-auto relative m-1 xl:mt-4">
-    <List></List>
+  <div class="h-full overflow-auto bg-white duration-500">
+    <!-- 导航栏 -->
+    <Navigation />
+    <!-- 列表 -->
+    <div class="max-w-screen-xl mx-auto relative m-1 xl:mt-4">
+      <List></List>
+    </div>
   </div>
 </template>
 

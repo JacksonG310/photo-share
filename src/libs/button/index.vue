@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="rounded">
     <button
       class="text-sm text-center rounded duration-150 flex items-center justify-center"
       :class="[

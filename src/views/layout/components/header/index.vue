@@ -1,6 +1,7 @@
 <template>
+  <!-- header -->
   <div
-    class="w-screen bg-white dark:bg-gray-800 border-b border-b-gray-200 dark:border-b-gray-700 px-2 py-1"
+    class="w-full bg-white dark:bg-gray-800 border-b border-b-gray-200 dark:border-b-gray-700 px-2 py-1"
   >
     <div class="flex items-center">
       <img
