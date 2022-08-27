@@ -19,7 +19,7 @@
 
 <script setup>
 import { useVModel, useIntersectionObserver } from '@vueuse/core';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 const props = defineProps({
   // 是否处于加载状态
   modelValue: {
@@ -36,14 +36,33 @@ const emits = defineEmits(['onLoad', 'update:modelValue']);
 
 const loading = useVModel(props);
 
-// 滚动的元素
+// loading元素
 const loadingTarget = ref(null);
-useIntersectionObserver(loadingTarget, ([isIntersecting]) => {
-  console.log('loading可见');
-  if (isIntersecting && !loading.value && !props.isFinished) {
-    //   // 当前loading可见
-    loading.value = true;
-    emits('onLoad');
-  }
+// loading当前是否在底部
+const isLoadingTargetIntersection = ref(false);
+
+useIntersectionObserver(loadingTarget, ([IntersectionObserverEntry]) => {
+  let { isIntersecting } = IntersectionObserverEntry;
+  isLoadingTargetIntersection.value = isIntersecting;
+  emitLoad();
+});
+
+const emitLoad = () => {
+  setTimeout(() => {
+    if (
+      isLoadingTargetIntersection.value &&
+      !loading.value &&
+      !props.isFinished
+    ) {
+      //   // 当前loading可见
+      loading.value = true;
+      emits('onLoad');
+    }
+  }, 500);
+};
+// 解决首屏未铺满
+watch(loading, () => {
+  console.log('loading变化');
+  emitLoad();
 });
 </script>

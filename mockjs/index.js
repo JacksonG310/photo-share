@@ -43,15 +43,22 @@ module.exports = function(app) {
         res.send(categoryData);
     })
     app.get('/pexels/list', (req, res) => {
-        const { page, size } = req.query;
+        let { page, size, categoryId } = req.query;
+        page = Number(page);
+        size = Number(size);
+        let data = list;
+        if (categoryId && categoryId != 'all') {
+            data = list.filter(item => item.tags.includes(categoryId));
+        }
         const startIndex = page * size;
-        const endIndex = (page + 1) * size;
-        const listData = list.slice(startIndex, endIndex);
+        const endIndex = (page + 1) * size >= data.length ? data.length : (page + 1) * size;
+        console.log(page, size, endIndex);
+        const listData = data.slice(startIndex, endIndex);
         const result = {
             code: 200,
             data: {
                 list: listData,
-                total: list.length,
+                total: data.length,
             },
             page,
             size,
@@ -62,5 +69,61 @@ module.exports = function(app) {
         }
         res.send(result)
     })
-
+    app.get("/pexels/theme", (req, res) => {
+        const result = {
+            success: true,
+            code: 200,
+            data: {
+                themes: [{
+                        id: "work",
+                        photo: "https://images.pexels.com/photos/2127969/pexels-photo-2127969.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=250&w=360",
+                        title: "工作"
+                    },
+                    {
+                        id: "fashion",
+                        photo: "https://images.pexels.com/videos/7305158/pexels-photo-7305158.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=250&w=360",
+                        title: "时尚"
+                    },
+                    {
+                        id: "nature photography",
+                        photo: "https://images.pexels.com/photos/2127969/pexels-photo-2127969.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=250&w=360",
+                        title: "自然摄影"
+                    },
+                    {
+                        id: "Summer",
+                        photo: "https://images.pexels.com/photos/4321076/pexels-photo-4321076.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=250&w=360",
+                        title: "夏天"
+                    },
+                    {
+                        id: "Art",
+                        photo: "https://images.pexels.com/photos/9890370/pexels-photo-9890370.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=250&w=360",
+                        title: "艺术"
+                    },
+                    {
+                        id: "Botany",
+                        photo: "https://images.pexels.com/photos/212940/pexels-photo-212940.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=250&w=360",
+                        title: "植物"
+                    },
+                    {
+                        id: "Love",
+                        photo: "https://images.pexels.com/videos/8091554/burglar-country-house-couple-couple-hugging-8091554.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=250&w=360",
+                        title: "爱情"
+                    }
+                ]
+            },
+            message: "success"
+        }
+        res.send(result);
+    })
+    app.get("/pexels/:id", (req, res) => {
+        const { id } = req.params;
+        const data = list.find(item => item.id === id);
+        const result = {
+            code: 200,
+            data,
+            message: "success",
+            success: true,
+        }
+        res.send(result);
+    })
 }

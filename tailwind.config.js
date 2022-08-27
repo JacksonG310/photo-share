@@ -10,13 +10,16 @@ module.exports = {
 
             width: {
                 '140px': '140px',
-                '800px': '800px'
+                '260px': '260px',
+                '800px': '800px',
+                '35%': '35%'
             },
             height: {
                 '22px': '22px',
                 '44px': '44px',
                 '56px': '56px',
                 '80vh': '80vh',
+                '140px': '140px',
                 '206px': '206px',
                 'headerPC': '72px',
                 'mainPC': 'calc(100vh - 72px)'
@@ -24,11 +27,29 @@ module.exports = {
             maxHeight: {
                 '368px': '368px',
             },
+            maxWidth: {
+                '860px': '860px',
+            },
+            minWidth: {
+                '420px': '420px'
+            },
             colors: {
                 main: '#f44c58',
                 'hover-main': '#f32836',
                 'vue-green': '#41b883',
-                'vue-gray': '#35495e'
+                'vue-gray': '#35495e',
+                'success-100': '#F2F9EC',
+                'success-200': '#E4F2DB',
+                'success-300': '#7EC050',
+                'warn-100': '#FCF6ED',
+                'warn-200': '#F8ECDA',
+                'warn-300': '#DCA550',
+                'error-100': '#fef0f0',
+                'error-200': '#f3471c',
+                'error-300': '#f56c6c',
+            },
+            backdropBlur: {
+                '4xl': '240px'
             }
         },
 
@@ -43,7 +64,8 @@ module.exports = {
         boxShadow: {
             'l-white': '-10px 0 10px #fff',
             'l-gray': '-10px 0 10px #18181b'
-        }
+        },
+
     },
     variants: {},
     plugins: [],

@@ -25,7 +25,15 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue';
+import {
+  ref,
+  computed,
+  onMounted,
+  onUnmounted,
+  onBeforeUpdate,
+  watch,
+  nextTick
+} from 'vue';
 import {
   getImgElement,
   getAllImgSrc,
@@ -102,11 +110,10 @@ const useColumnWidth = () => {
   columnWidth.value =
     (containerWidth.value - columnSpacingTotal.value) / props.columns;
 };
-// 挂载时计算宽度
+// 挂载时计算列宽度
 onMounted(() => {
   useColumnWidth();
 });
-
 // 图片预加载，用于计算item宽高
 let itemHeights = []; // item高度集合
 // 监听图片加载完成(图片预加载)
@@ -180,6 +187,9 @@ onUnmounted(() => {
 watch(
   () => props.data,
   (newVal) => {
+    if (newVal.length == 0) {
+      containerHeight.value = 0;
+    }
     nextTick(() => {
       const resetColumnHeight = newVal.every((item) => !item._style);
       if (resetColumnHeight) {
@@ -199,7 +209,7 @@ watch(
   }
 );
 
-// 监听行数变化
+// 监听行列变化
 watch(
   () => props.columns,
   (newValue) => {

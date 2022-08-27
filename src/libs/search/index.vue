@@ -55,7 +55,7 @@
 </template>
 <script setup>
 import { ref, watch } from 'vue';
-import { useVModel, onClickOutside } from '@vueuse/core';
+import { useVModel, onClickOutside, watchDebounced } from '@vueuse/core';
 
 // 实现双向数据绑定
 const props = defineProps({
@@ -66,7 +66,7 @@ const props = defineProps({
 });
 const emits = defineEmits([
   'update:modelValue',
-  'handleSearch',
+  'search',
   'clear',
   'input',
   'focus',
@@ -83,7 +83,7 @@ const onClearClick = () => {
 
 // 处理搜索事件
 const onSearchClick = () => {
-  emits('handleSearch', inputValue.value);
+  emits('search', inputValue.value);
 };
 
 // 获得焦点显示下拉框
@@ -103,9 +103,15 @@ const onInputBlur = () => {
   emits('blur');
 };
 // 输入事件
-watch(inputValue, (val) => {
-  emits('input', val);
-});
+watchDebounced(
+  inputValue,
+  (val) => {
+    emits('input', val);
+  },
+  {
+    debounce: 500
+  }
+);
 </script>
 <style lang="scss">
 .slider-enter-from,

@@ -61,6 +61,7 @@ const sizeEnum = {
 
 <script setup>
 import { computed } from 'vue';
+import mSvgIcon from '../svgIcon/index.vue';
 /**
  * 构建风格和大小可选项
  * 区分icon button和text button

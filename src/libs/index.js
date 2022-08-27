@@ -1,3 +1,6 @@
+export { confirm }
+from './confirm/index'
+
 export default {
     install(app) {
 

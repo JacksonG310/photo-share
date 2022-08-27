@@ -1,3 +1,3 @@
 <template>
-  <div>我是Floating</div>
+  <m-floating></m-floating>
 </template>

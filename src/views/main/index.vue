@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full overflow-auto bg-white duration-500">
+  <div class="h-full overflow-auto bg-white duration-500" id="main">
     <!-- 导航栏 -->
     <Navigation />
     <!-- 列表 -->

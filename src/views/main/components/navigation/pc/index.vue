@@ -22,9 +22,9 @@
         class="flex-shrink-0 px-1.5 py-0 z-10 duration-200 text-gray-900 dark:text-gray-500 dark:hover:text-gray-300 text-base font-bold h-4 leading-4 cursor-pointer hover:bg-gray-200 dark:bg-gray-900 rounded mr-1 mb-1"
         :class="{
           'text-gray-900 dark:text-gray-200 bg-gray-200 dark:bg-gray-900':
-            currentCategoryIndex === index
+            $store.getters.currentCategoryIndex === index
         }"
-        @click="onItemClick(index)"
+        @click="onItemClick(item)"
       >
         {{ item.name }}
       </li>
@@ -34,15 +34,16 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useStore } from 'vuex';
 // 控制下拉
 const isOpen = ref(false);
 const triggerState = () => {
   isOpen.value = !isOpen.value;
 };
 // 选中状态处理
-const currentCategoryIndex = ref(0);
-const onItemClick = (index) => {
-  currentCategoryIndex.value = index;
+const store = useStore();
+const onItemClick = (item) => {
+  store.dispatch('app/useCurrentCategory', item);
 };
 </script>
 

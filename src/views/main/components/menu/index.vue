@@ -8,7 +8,7 @@
         v-for="(item, index) in $store.getters.categoryData"
         :key="item.id"
         class="text-lg text-gray-900 dark:text-gray-300 p-1 py-1.5 duration-100 active:bg-gray-100 dark:active:bg-gray-900"
-        @click="$emit('onMenuItemClick', index)"
+        @click="$emit('onMenuItemClick', item)"
       >
         {{ item.name }}
       </li>

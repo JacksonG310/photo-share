@@ -26,11 +26,11 @@
         :key="item.id"
         class="flex-shrink-0 px-1.5 py-0.5 z-10 duration-200"
         :class="{
-          'text-white': currentCategoryIndex === index,
+          'text-white': $store.getters.currentCategoryIndex === index,
           'mr-4': index === $store.getters.categoryData.length - 1
         }"
         :ref="setItem"
-        @click="handleItemClick(index)"
+        @click="handleItemClick(item)"
       >
         {{ item.name }}
       </li>
@@ -43,6 +43,7 @@
 <script setup>
 import { useScroll } from '@vueuse/core';
 import { ref, onBeforeUpdate, watch } from 'vue';
+import { useStore } from 'vuex';
 import Menu from '../../menu/index.vue';
 
 // 滑块样式
@@ -52,9 +53,9 @@ const sliderStyle = ref({
 });
 
 // 点击改变index
-const currentCategoryIndex = ref(0);
-const handleItemClick = (index) => {
-  currentCategoryIndex.value = index;
+const store = useStore();
+const handleItemClick = (item) => {
+  store.dispatch('app/useCurrentCategory', item);
 };
 
 // 控制蒙版展示
@@ -82,19 +83,22 @@ const ulTarget = ref(null);
 const { x: ulScrollLeft } = useScroll(ulTarget);
 
 // 监听currentCatetoryIndex
-watch(currentCategoryIndex, (index) => {
-  const { left, width } = itemRefs[index].getBoundingClientRect();
-  // 滑块距离 = ul滚动距离 + 点选元素的偏移量 - ul的左padding
-  const distance = ulScrollLeft.value + left - 10;
+watch(
+  () => store.getters.currentCategoryIndex,
+  (newIndex) => {
+    const { left, width } = itemRefs[newIndex].getBoundingClientRect();
+    // 滑块距离 = ul滚动距离 + 点选元素的偏移量 - ul的左padding
+    const distance = ulScrollLeft.value + left - 10;
 
-  sliderStyle.value = {
-    transform: `translateX(${distance}px)`,
-    width: `${width}px`
-  };
-});
+    sliderStyle.value = {
+      transform: `translateX(${distance}px)`,
+      width: `${width}px`
+    };
+  }
+);
 
 // 处理菜单项的点击
-const handleMenuItemClick = (index) => {
-  currentCategoryIndex.value = index;
+const handleMenuItemClick = (item) => {
+  store.dispatch('app/useCurrentCategory', item);
 };
 </script>

@@ -5,6 +5,7 @@
   >
     <div class="flex items-center">
       <img
+        v-lazy
         class="h-4 cursor-pointer mr-2"
         @click="handleToHome"
         src="@/assets/logo.png"
