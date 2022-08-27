@@ -1,17 +1,19 @@
 <<<<<<< HEAD
 # photoShare
-一个照片分享网站（使用mock模拟后端数据）
+一个在线壁纸下载网站（使用mock模拟数据）
 =======
 # photo
 
 ## Project setup
 ```
 yarn install
+安装项目依赖
 ```
 
 ### Compiles and hot-reloads for development
 ```
 yarn serve
+启动项目
 ```
 
 ### Compiles and minifies for production
