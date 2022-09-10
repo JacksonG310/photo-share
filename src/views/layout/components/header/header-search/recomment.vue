@@ -14,7 +14,7 @@
           alt=""
         />
         <p
-          class="absolute bottom-0 left-0 w-full h-1/2 flex items-center backdrop-blur rounded px-1 text-white text-xs duration-300 hover:backdrop-blur-none"
+          class="absolute bottom-0 left-0 w-full h-1/2 flex items-center backdrop-filter backdrop-blur rounded px-1 text-white text-xs duration-300 hover:backdrop-blur-none"
         >
           # {{ themeData.big.title }}
         </p>
@@ -33,7 +33,7 @@
             alt=""
           />
           <p
-            class="backdrop-blur absolute top-0 left-0 w-full h-full flex items-center px-1 rounded cursor-pointer duration-300 hover:backdrop-blur-none"
+            class="backdrop-filter backdrop-blur absolute top-0 left-0 w-full h-full flex items-center px-1 rounded cursor-pointer duration-300 hover:backdrop-blur-none"
           >
             # {{ item.title }}
           </p>

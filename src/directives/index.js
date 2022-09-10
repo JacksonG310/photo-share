@@ -1,4 +1,4 @@
-import lazy from "./modules/lazy";
+// import lazy from "./modules/lazy";
 
 export default {
     install(app) {
@@ -9,7 +9,6 @@ export default {
             app.directive(name, drecRequire(key).default);
         });
         // app.directive('lazy', lazy);
-
     }
 
 }

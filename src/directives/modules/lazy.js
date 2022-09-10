@@ -1,4 +1,5 @@
 import { useIntersectionObserver } from "@vueuse/core"
+
 export default {
     // 图片懒加载
     mounted(el) {
