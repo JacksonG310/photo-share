@@ -1,6 +1,6 @@
 const list = require('./list');
 const axios = require('axios');
-const { processTheme, processImageList } = require('./utils')
+const { processTheme, processImageList } = require('./utils.js')
 module.exports = function(app) {
     app.get('/category', (req, res) => {
         console.log(12313);
