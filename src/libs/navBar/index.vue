@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-5 border-b flex items-center z-10 bg-white border-b-gray-200"
+    class="w-full h-5 border-b flex items-center z-10 bg-white border-b-slate-200"
     :class="['sticky' ? 'sticky top-0 left-0' : 'relative']"
   >
     <!-- left -->
@@ -14,7 +14,7 @@
     </div>
     <!-- center -->
     <div
-      class="h-full flex items-center justify-center m-auto font-bold text-base text-gray-900"
+      class="h-full flex items-center justify-center m-auto font-bold text-base text-slate-900"
     >
       <slot></slot>
     </div>

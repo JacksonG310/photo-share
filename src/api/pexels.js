@@ -16,7 +16,7 @@ export const getPexeplsById = (id) => {
 // 获取关键词推荐
 export const getPexeplsSuggest = (keyword) => {
     return request({
-        url: `https://www.pexels.com/zh-cn/api/v3/search/suggestions/${keyword}`,
+        url: `/pexels/suggestions/${keyword}`,
     })
 }
 
@@ -24,5 +24,15 @@ export const getPexeplsSuggest = (keyword) => {
 export const getPexeplsTheme = () => {
     return request({
         url: '/pexels/theme'
+    })
+}
+
+// 获取搜索结果
+export const getPexeplsSearch = (keyword) => {
+    return request({
+        url: 'pexels/search',
+        params: {
+            keyword
+        }
     })
 }

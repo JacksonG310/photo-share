@@ -15,6 +15,7 @@ module.exports = {
                 symbolId: 'icon-[name]'
             })
             .end()
+
     },
     devServer: {
         before: require('./mockjs/index'),

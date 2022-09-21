@@ -10,7 +10,7 @@
         name="infinite-load"
       ></m-svgIcon>
       <!-- 没有更多数据 -->
-      <p v-if="isFinished" class="text-center text-base text-gray-400">
+      <p v-if="isFinished" class="text-center text-base text-slate-400">
         没有更多数据了！
       </p>
     </div>

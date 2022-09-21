@@ -1,7 +1,7 @@
 <template>
   <!-- search组件 -->
   <div
-    class="group relative p-0.5 rounded-xl border-white dark:border-gray-200 duration-500 hover:bg-vue-green hover:bg-opacity-10"
+    class="group relative p-0.5 rounded-xl border-white dark:border-zinc-200 duration-500 hover:bg-vue-green hover:bg-opacity-10"
     ref="searchCantainer"
   >
     <div>
@@ -13,7 +13,7 @@
       ></m-svgIcon>
       <!-- 输入框 -->
       <input
-        class="block w-full h-44px pl-4 outline-none bg-gray-100 dark:bg-gray-800 rounded-xl text-black dark:to-gray-200 text-sm tracking-wide font-semibold border border-gray-300 dark:border-gray-700 focus:border-vue-green duration-500 group-hover:bg-white dark:group-hover:bg-gray-900 group-hover:border-gray-200 dark:group-hover:border-gray-700"
+        class="block w-full h-44px pl-4 outline-none bg-zinc-100 dark:bg-zinc-800 rounded-xl text-black dark:text-zinc-200 text-sm tracking-wide font-semibold border border-zinc-300 dark:border-zinc-700 focus:border-vue-green duration-500 group-hover:bg-white dark:group-hover:bg-zinc-900 group-hover:border-zinc-200 dark:group-hover:border-zinc-700"
         type="text"
         placeholder="搜索"
         v-model="inputValue"
@@ -30,7 +30,7 @@
       ></m-svgIcon>
       <!-- 分割线 -->
       <div
-        class="opacity-0 h-1.5 w-px absolute top-1/2 transform bg-gray-500 -translate-y-1/2 right-7 duration-200 group-hover:opacity-100"
+        class="opacity-0 h-1.5 w-px absolute top-1/2 transform bg-zinc-500 -translate-y-1/2 right-7 duration-200 group-hover:opacity-100"
       ></div>
       <!-- 搜索按钮（通用组件） -->
       <m-button
@@ -46,7 +46,7 @@
         v-if="$slots.dropdown"
         v-show="isFocus"
         id="slider"
-        class="max-h-368px w-full text-base overflow-auto bg-white dark:bg-gray-800 absolute z-20 left-0 top-6 p-2 rounded border border-gray-200 dark:border-gray-600 duration-200"
+        class="max-h-368px w-full text-base overflow-auto bg-white dark:bg-zinc-800 absolute z-20 left-0 top-6 p-2 rounded border border-zinc-200 dark:border-zinc-600 duration-200"
       >
         <slot name="dropdown"></slot>
       </div>

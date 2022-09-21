@@ -1,5 +1,8 @@
 <template>
-  <div class="h-full overflow-auto bg-white duration-500" id="main">
+  <div
+    class="h-full overflow-auto bg-white duration-500 dark:bg-zinc-800"
+    id="main"
+  >
     <!-- 导航栏 -->
     <Navigation />
     <!-- 列表 -->

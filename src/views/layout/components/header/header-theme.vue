@@ -5,8 +5,8 @@
       <template #reference>
         <m-svgIcon
           :name="svgIconName"
-          class="w-4 h-4 p-1 cursor-pointer rounded-sm duration-200 outline-none hover:bg-gray-200 dark:hover:border-gray-900 bg-opacity-60"
-          fillClass="fill-gray-900 dark:fill-gray-300"
+          class="w-4 h-4 p-1 cursor-pointer rounded-sm duration-200 outline-none hover:bg-zinc-200 dark:hover:border-zinc-900 bg-opacity-60"
+          fillClass="fill-zinc-900 dark:fill-zinc-300"
         >
         </m-svgIcon>
       </template>
@@ -16,14 +16,14 @@
           v-for="item in themeArr"
           :key="item.id"
           @click="onThemeItemClick(item)"
-          class="flex items-center p-1 cursor-pointer rounded hover:bg-gray-100 dark:bg-gray-800 bg-opacity-60"
+          class="flex items-center p-1 cursor-pointer rounded hover:bg-zinc-100 dark:bg-zinc-800 bg-opacity-60"
         >
           <m-svgIcon
             :name="item.icon"
             class="w-1.5 h-1.5 mr-1"
-            fillClass="fill-gray-900 dark:fill-gray-300"
+            fillClass="fill-zinc-900 dark:fill-zinc-300"
           ></m-svgIcon>
-          <span class="text-gray-800 text-sm dark:text-gray-300">{{
+          <span class="text-zinc-800 text-sm dark:text-zinc-300">{{
             item.name
           }}</span>
         </div>

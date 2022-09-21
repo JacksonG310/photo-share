@@ -4,7 +4,7 @@
     <transition name="fade">
       <div
         v-if="isVisible"
-        class="w-screen h-screen bg-gray-900 bg-opacity-60 z-40 fixed top-0 left-0"
+        class="w-screen h-screen bg-slate-900 bg-opacity-60 z-40 fixed top-0 left-0"
         @click="onFadeClick"
       ></div>
     </transition>
@@ -15,9 +15,9 @@
         class="w-4/5 fixed top-1/3 left-1/2 transform -translate-x-1/2 z-50 px-2 py-1.5 rounded-sm border cursor-pointer bg-white xl:w-35%"
       >
         <!-- 标题 -->
-        <div class="text-lg font-bold text-gray-900 m-2">{{ title }}</div>
+        <div class="text-lg font-bold text-slate-900 m-2">{{ title }}</div>
         <!-- 文本 -->
-        <div class="text-base text-gray-900">{{ content }}</div>
+        <div class="text-base text-slate-900">{{ content }}</div>
         <!-- 按钮 -->
         <div class="flex justify-end">
           <m-button type="info" class="mr-2" @click="onCancelClick">{{

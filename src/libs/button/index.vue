@@ -33,9 +33,9 @@ const EMITS_CLICK = 'click';
 // type:可选项 按钮风格
 const typeEnum = {
   primary:
-    'text-white bg-gray-800 dark:bg-gray-900 hover:bg-gray-900 dark:hover:bg-gray-700 active:bg-gray-400 dark:active:bg-gray-700',
-  main: 'text-white bg-vue-green dark:bg-gray-900 hover:bg-vue-gray dark:hover:bg-gray-700 active:bg-main dark:active:bg-gray-700',
-  info: 'text-gray-800 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 active:bg-gray-200 dark:active:bg-gray-700'
+    'text-white bg-zinc-800 dark:bg-zinc-900 hover:bg-zinc-900 dark:hover:bg-zinc-700 active:bg-zinc-400 dark:active:bg-zinc-700',
+  main: 'text-white bg-vue-green dark:bg-zinc-900 hover:bg-vue-zinc dark:hover:bg-zinc-700 active:bg-main dark:active:bg-zinc-700',
+  info: 'text-zinc-800 dark:text-zinc-300 bg-zinc-200 dark:bg-zinc-700 hover:bg-zinc-300 dark:hover:bg-zinc-600 active:bg-zinc-200 dark:active:bg-zinc-700'
 };
 // size：可选项 按钮大小,区分文字和icon button
 const sizeEnum = {

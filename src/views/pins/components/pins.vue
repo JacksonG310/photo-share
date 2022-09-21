@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed top-0 left-0 w-screen h-screen text-xl z-20 backdrop-filter backdrop-blur-4xl bg-transparent pb-2 overflow-y-auto xl:p-2"
+    class="fixed top-0 left-0 w-screen h-screen text-xl z-20 backdrop-filter backdrop-blur-4xl bg-transparent dark:bg-zinc-800 pb-2 overflow-y-auto xl:p-2"
   >
     <!-- 移动端 -->
     <m-navBar v-if="isMobile" :sticky="true">
@@ -13,7 +13,7 @@
     <m-svgIcon
       v-else
       name="close"
-      class="w-3 h-3 ml-1 p-0.5 cursor-pointer duration-200 rounded-sm bg-gray-100 absolute right-2 top-2"
+      class="w-3 h-3 ml-1 p-0.5 cursor-pointer duration-200 rounded-sm bg-zinc-100 absolute right-2 top-2"
       @click="onPop"
     ></m-svgIcon>
     <!-- 内容 -->
@@ -28,18 +28,20 @@
         alt=""
       />
       <div
-        class="xl:w-2/5 xl:h-full xl:bg-white xl:rounded-tr-lg xl:rounded-br-lg xl:p-3"
+        class="xl:w-2/5 xl:h-full xl:dark:bg-zinc-900 xl:bg-white xl:rounded-tr-lg xl:rounded-br-lg xl:p-3"
       >
         <!-- PC端收藏、分享 -->
         <div v-if="!isMobile" class="flex justify-between mb-2">
           <m-svgIcon
             name="share"
-            class="w-4 h-4 cursor-pointer hover:bg-gray-200 duration-300 rounded"
+            class="w-4 h-4 cursor-pointer hover:bg-zinc-200 duration-300 rounded"
           ></m-svgIcon>
           <m-button type="info" icon="heart"></m-button>
         </div>
         <!-- 标题 -->
-        <p class="text-base text-gray-900 ml-1 font-bold xl:text-xl xl:mb-5">
+        <p
+          class="text-base text-zinc-900 dark:text-zinc-200 ml-1 font-bold xl:text-xl xl:mb-5"
+        >
           {{ pexels.title }}
         </p>
         <!-- 作者 -->
@@ -50,7 +52,9 @@
             :src="pexels.avatar"
             alt=""
           />
-          <span class="text-base text-gray-900 ml-1">{{ pexels.author }}</span>
+          <span class="text-base text-zinc-900 dark:text-zinc-200 ml-1">{{
+            pexels.author
+          }}</span>
         </div>
       </div>
     </div>

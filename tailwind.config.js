@@ -1,10 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    content: ["./src/**/*.vue"],
     darkMode: 'class',
-    purge: [
-        './src/**/*.html',
-        './src/**/*.js',
-    ],
     theme: {
         extend: {
 
@@ -47,6 +44,27 @@ module.exports = {
                 'error-100': '#fef0f0',
                 'error-200': '#f3471c',
                 'error-300': '#f56c6c',
+                'slate-50': '#f8fafc',
+                'slate-100': '#f1f5f9',
+                'slate-200': '#e2e8f0',
+                'slate-300': '#cbd5e1',
+                'slate-400': '#94a3b8',
+                'slate-500': '#64748b',
+                'slate-600': '#475569',
+                'slate-700': '#334155',
+                'slate-800': '#1e293b',
+                'slate-900': '#0f172a',
+                'zinc-50': '#fafafa',
+                'zinc-100': '#f4f4f5',
+                'zinc-200': '#e4e4e7',
+                'zinc-300': '#d4d4d8',
+                'zinc-400': '#a1a1aa',
+                'zinc-500': '#71717a',
+                'zinc-600': '#52525b',
+                'zinc-700': '#3f3f46',
+                'zinc-800': '#27272a',
+                'zinc-900': '#18181b'
+
             },
             backdropBlur: {
                 '4xl': '240px'
@@ -63,7 +81,7 @@ module.exports = {
         },
         boxShadow: {
             'l-white': '-10px 0 10px #fff',
-            'l-gray': '-10px 0 10px #18181b'
+            'l-zinc': '-10px 0 10px #18181b'
         },
 
     },

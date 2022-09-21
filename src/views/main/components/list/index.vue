@@ -41,7 +41,7 @@ import pins from '@/views/pins/components/pins.vue';
 import { useStore } from 'vuex';
 import { ref, watch } from 'vue';
 let query = {
-  page: 0,
+  page: 1,
   size: 20
 };
 const loading = ref(false);
@@ -54,8 +54,11 @@ const getPexeplsData = async () => {
   if (pexelsList.value.length != 0) {
     query.page += 1;
   }
+
   const pexelsData = await getPexeplsList(query);
-  if (query.page === 0) {
+  console.log(pexelsData);
+  if (query.page === 1) {
+    console.log('第一次请求');
     pexelsList.value = pexelsData.list;
   } else {
     pexelsList.value.push(...pexelsData.list);
@@ -69,6 +72,7 @@ const getPexeplsData = async () => {
 getPexeplsData();
 // 修改query对象重新发起请求
 const resetQuery = (newQuery) => {
+  console.log('重置状态');
   query = {
     ...query,
     ...newQuery
@@ -143,7 +147,7 @@ watch(
   () => store.getters.currentCategory,
   (currentCategory) => {
     resetQuery({
-      page: 0,
+      page: 1,
       categoryId: currentCategory.id
     });
   }
@@ -153,8 +157,8 @@ watch(
   () => store.getters.searchText,
   (newValue) => {
     resetQuery({
-      page: 0,
-      searchText: newValue
+      page: 1,
+      keyword: newValue
     });
   }
 );

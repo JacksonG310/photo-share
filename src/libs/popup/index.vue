@@ -4,7 +4,7 @@
       <transition name="fade">
         <!-- 蒙版 -->
         <div
-          class="w-screen h-screen bg-gray-900 bg-opacity-60 z-40 fixed top-0 left-0"
+          class="w-screen h-screen bg-zinc-900 bg-opacity-60 z-40 fixed top-0 left-0"
           v-if="modelValue"
           @click="emits('update:modelValue', false)"
         ></div>
@@ -12,7 +12,7 @@
       <transition name="pop-down-up">
         <!-- 内容 -->
         <div
-          class="w-screen bg-white dark:bg-gray-800 z-50 fixed bottom-0"
+          class="w-screen bg-white dark:bg-zinc-800 z-50 fixed bottom-0"
           v-bind="$attrs"
           v-if="modelValue"
         >
