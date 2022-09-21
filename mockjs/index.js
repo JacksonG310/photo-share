@@ -1,9 +1,8 @@
 const list = require('./list');
 const axios = require('axios');
-const { processTheme, processImageList } = require('./utils.js')
+const { processTheme, processImageList, processImageItem } = require('./utils.js');
 module.exports = function(app) {
     app.get('/category', (req, res) => {
-        console.log(12313);
         const categoryData = {
             code: 200,
             data: {
@@ -50,7 +49,6 @@ module.exports = function(app) {
         page = Number(page);
         size = Number(size);
         if (!keyword) {
-            console.log('无');
             let data = list;
             if (categoryId && categoryId != 'all') {
                 data = list.filter(item => item.tags.includes(categoryId));
@@ -74,7 +72,6 @@ module.exports = function(app) {
             }
             res.send(result)
         } else {
-            console.log('有');
             const endcodeKeyword = encodeURI(keyword);
             const url = `https://www.pexels.com/zh-cn/api/v3/search/photos?page=${[page]}&per_page=${size}&query=${endcodeKeyword}&orientation=all&size=all&color=all`;
             axios.get(url, {
@@ -101,7 +98,6 @@ module.exports = function(app) {
         }
     })
     app.get("/pexels/theme", (req, res) => {
-        console.log(12);
         const url = `https://www.pexels.com/zh-cn/api/v3/search/trending?/`
         axios.get(url, {
             headers: {
@@ -139,14 +135,22 @@ module.exports = function(app) {
     })
     app.get("/pexels/:id", (req, res) => {
         const { id } = req.params;
-        const data = list.find(item => item.id === id);
-        const result = {
-            code: 200,
-            data,
-            message: "success",
-            success: true,
-        }
-        res.send(result);
+        const url = `https://www.pexels.com/zh-cn/api/v3/media/${id}`
+        axios.get(url, {
+            headers: {
+                'secret-key': 'H2jk9uKnhRmL6WPwh89zBezWvr'
+            }
+        }).then(({ data }) => {
+            const imageItem = processImageItem(data);
+            const result = {
+                code: 200,
+                data: imageItem,
+                message: "success",
+                success: true,
+            }
+            res.send(result);
+        })
+
     })
     app.get("/pexels/search", (req, res) => {
         const { keyword, pageNum = 1, pageSize = 20 } = req.query;
